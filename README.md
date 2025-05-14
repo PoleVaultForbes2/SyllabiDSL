@@ -10,14 +10,7 @@ Author
 
 <!-- Note: wrapping table in div.noheader will hide the table's header -->
 <!-- Note: wrapping table in div.firstcol will style the first column different from other columns -->
-<div class="noheader firstcol">
-                  |             
-------------------|-------------
-name              | Josh Forbes
-computer + OS     | Windows 
-time to complete  | 30 hours
-partner           | Matthew Saxby
-</div>
+Josh Forbes and Matthew Saxby
 
 
 Overview
