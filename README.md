@@ -86,19 +86,6 @@ Matthew: Handled coming up with inputs, building the HTML file, helping come up 
 
 
 
-
-<!--   Feel free to modify the following to fit a theme of your choosing   -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> <!-- a sans-serif font -->
-<style>  /* A TAYLOR-INSPIRED THEME */
-    body {font-family:'Open Sans',sans-serif;}
-    .md a:link, .md a:visited {color:hsl(252,23.0%,44.3%); font-family:'Open Sans',sans-serif;}
-    .md table.table th {background-color:hsl(252,23.0%,44.3%);}
-    .md .noheader th {display:none;}
-    .md .firstcol td:first-child {white-space:pre;color:white;vertical-align:top;font-weight:bold;border-color:black;background:hsl(252,23.0%,54.3%);}
-    .md .firstcol tr:nth-child(even) td:first-child {background:hsl(252,23.0%,44.3%);}
-</style>
-
-
 <!-- ****************************** -->
 <!--    Leave the content below     -->
 <!-- ****************************** -->
