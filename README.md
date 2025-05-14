@@ -114,9 +114,9 @@ Matthew: Handled coming up with inputs, building the HTML file, helping come up 
     /* fixes table of contents of medium-length document from looking weird if admonitions are behind */
     .md div.mediumTOC { background: white; }
     .md div.admonition { position: initial !important; }
-</style>-->
+</style> -->
 
-<!--   Leave the following Markdeep formatting code, as this will format your text above to look nice in a wed browser   -->
+<!--   Leave the following Markdeep formatting code, as this will format your text above to look nice in a wed browser 
 <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
 <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js"></script>
-<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible");</script>
+<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible");</script> -->
