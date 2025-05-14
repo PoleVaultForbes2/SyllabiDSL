@@ -1,0 +1,79 @@
+{
+    "difficultyLevels": [
+        {
+            "level": 1,
+            "days": 3
+        },
+        {
+            "level": 5,
+            "days": 7
+        }
+    ],
+    "semesterDates": [{
+        "start": "8/10/2027",
+        "end": "12/13/2028"
+    }],
+    "breakDates": [
+        {
+            "start": "9/22/2027",
+            "end": "9/27/2027"
+        },
+        {
+            "start": "10/13/2027",
+            "end": "10/31/2027"
+        }
+    ],
+    "courseInfo": [
+        {
+            "courseName": "CS101",
+            "homeworks": [
+                {
+                    "date": "08/13/2027",
+                    "difficulty": 3,
+                    "color": "red",
+                    "title": "HW 01"
+                },
+                {
+                    "date": "09/18/2027",
+                    "difficulty": 5,
+                    "color": "red",
+                    "title": "HW 02"
+                },
+                {
+                    "date": "12/12/2028",
+                    "difficulty": 1,
+                    "color": "red",
+                    "title": "HW 03"
+                }
+            ],
+            "projects": [{
+                "date": "10/14/2027",
+                "difficulty": 0,
+                "color": "yellow",
+                "title": "PRJ 01"
+            }],
+            "tests": [{
+                "date": "11/13/2027",
+                "difficulty": 0,
+                "color": "green",
+                "title": "MIDTERM"
+            }]
+        },
+        {
+            "courseName": "ENG105",
+            "homeworks": [{
+                "date": "09/25/2027",
+                "difficulty": 4,
+                "color": "yellow",
+                "title": "Essay 1"
+            }],
+            "projects": [],
+            "tests": [{
+                "date": "12/12/2027",
+                "difficulty": 0,
+                "color": "green",
+                "title": "Final Exam"
+            }]
+        }
+    ]
+}

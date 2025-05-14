@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Syllabus Calendar</title>
+    <style>
+        /* === Enhanced Styles for Calendar === */
+ body {
+   background: linear-gradient(to right, #e0f7fa, #ffffff);
+   color: #333;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ h1 {
+   text-align: center;
+   font-size: 2.5em;
+   color: #004d40;
+   margin-bottom: 20px;
+ }
+
+ table.calendar {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+ button {
+   background-color: #00796b;
+   color: white;
+   border: none;
+   padding: 10px 16px;
+   font-size: 1em;
+   margin: 10px;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+
+ button:hover {
+   background-color: #004d40;
+ }
+
+ #monthYearLabel {
+   font-size: 1.5em;
+   margin: 0 15px;
+   color: #00796b;
+   font-weight: bold;
+ }
+
+ table.calendar {
+   table.calendar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+
+  /* Force equal-width columns */
+  table-layout: fixed;
+  width: 100%;
+}
+ }
+
+ .calendar-controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ .calendar th {
+   background-color: #00695c;
+   color: white;
+   font-weight: 600;
+   font-size: 1em;
+ }
+
+ .event {
+  background-color: #b2ebf2;
+  color: #004d40;
+  padding: 4px 6px;
+  margin-top: 4px;
+  border-left: 4px solid #00796b;
+  border-radius: 3px;
+  font-size: 0.9em;
+  line-height: 1.3em;
+
+  /* New styles to fix stretching */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 128px;
+  white-space: normal;
+}
+
+ .calendar td {
+  background-color: #fefefe;
+  transition: background-color 0.3s ease;
+  vertical-align: top; /* Keep content aligned nicely */
+  padding: 8px;
+  word-wrap: break-word; /* Optional for extra safety */
+}
+
+ .calendar td:hover {
+   background-color: #e0f2f1;
+ }
+
+ .date-number {
+   font-weight: bold;
+   font-size: 1.1em;
+   color: #00796b;
+   margin-bottom: 5px;
+ }
+
+ .event {
+   background-color: #b2ebf2;
+   color: #004d40;
+   padding: 4px 6px;
+   margin-top: 4px;
+   border-left: 4px solid #00796b;
+   border-radius: 3px;
+   font-size: 0.9em;
+   line-height: 1.3em;
+ }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Course Calendar</h1>
+
+<div class="calendar-controls">
+    <button onclick="changeMonth(-1)">&#8592; Prev</button>
+    <span id="monthYearLabel"></span>
+    <button onclick="changeMonth(1)">Next &#8594;</button>
+</div>
+
+<table class="calendar">
+    <thead>
+    <tr>
+        <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+        <th>Thu</th><th>Fri</th><th>Sat</th>
+    </tr>
+    </thead>
+    <tbody id="calendar-body">
+    </tbody>
+</table>
+
+<script>
+    let currentDate = new Date();
+    let events = [];
+    let difficultyMap = {};
+
+    function changeMonth(offset) {
+  const newDate = new Date(currentDate);
+  newDate.setMonth(newDate.getMonth() + offset);
+
+  // Check bounds
+  if (semesterStart && newDate < new Date(semesterStart.getFullYear(), semesterStart.getMonth(), 1)) return;
+  if (semesterEnd && newDate > new Date(semesterEnd.getFullYear(), semesterEnd.getMonth(), 1)) return;
+
+  currentDate = newDate;
+  renderCalendar();
+}
+
+
+    function renderCalendar() {
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth();
+
+      const firstDay = new Date(year, month, 1);
+      const startingDay = firstDay.getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      document.getElementById("monthYearLabel").textContent =
+        firstDay.toLocaleString("default", { month: "long" }) + " " + year;
+
+      const tbody = document.getElementById("calendar-body");
+      tbody.innerHTML = "";
+
+      let day = 1;
+      for (let i = 0; i < 6; i++) {
+        const row = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+          const cell = document.createElement("td");
+          if (i === 0 && j < startingDay) {
+            cell.innerHTML = "";
+          } else if (day > daysInMonth) {
+            break;
+          } else {
+            const div = document.createElement("div");
+            div.className = "date-number";
+            div.textContent = day;
+            cell.appendChild(div);
+
+            // Add events matching this day/month/year
+            const fullDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            events.filter(e => e.date === fullDate).forEach(e => {
+              const ev = document.createElement("div");
+              ev.className = "event";
+              ev.textContent = e.text;
+              ev.style.backgroundColor = e.color;
+              cell.appendChild(ev);
+            });
+
+            row.appendChild(cell);
+            day++;
+          }
+        }
+        tbody.appendChild(row);
+      }
+    }
+
+let semesterStart = null;
+let semesterEnd = null;
+
+fetch("info.json")
+  .then(res => res.json())
+  .then(data => {
+    // Save semester range
+    if (data.semesterDates.length > 0) {
+      semesterStart = new Date(data.semesterDates[0].start);
+      semesterEnd = new Date(data.semesterDates[0].end);
+      currentDate = new Date(semesterStart.getFullYear(), semesterStart.getMonth(), 1); // Snap to first of month
+    }
+
+    // Build difficulty mapping
+    data.difficultyLevels.forEach(d => {
+      difficultyMap[d.level] = d.days;
+    });
+
+    // Build all events and reminders
+    data.courseInfo.forEach(course => {
+      ["homeworks", "projects", "tests"].forEach(type => {
+        course[type].forEach(a => {
+          const dueDate = new Date(a.date);
+          const dueStr = dueDate.toISOString().split("T")[0];
+          events.push({
+            date: dueStr,
+            text: `${course.courseName}: ${a.title}`,
+            color: a.color
+          });
+
+          // Reminder
+          const reminderDate = new Date(dueDate);
+          reminderDate.setDate(reminderDate.getDate() - (difficultyMap[a.difficulty] || 2));
+          const reminderStr = reminderDate.toISOString().split("T")[0];
+          events.push({
+            date: reminderStr,
+            text: `Reminder: ${a.title} due soon`,
+            color: "#f9d3b4"
+          });
+        });
+      });
+    });
+
+    // Add breaks
+    data.breakDates.forEach(b => {
+    const start = new Date(b.start);
+    const end = new Date(b.end);
+
+    for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+        const breakStr = d.toISOString().split("T")[0];
+        events.push({
+            date: breakStr,
+            text: "Break",
+            color: "#d3e4f0"
+            });
+        }
+    });
+
+    renderCalendar();
+  });
+
+</script>
+
+</body>
+</html>

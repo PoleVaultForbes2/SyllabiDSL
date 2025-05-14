@@ -1,0 +1,20 @@
+DIFFICULTY LEVEL:
+    1-3
+
+SEMESTER DATES:
+    (13/22/2027, 12/13/2027)
+
+BREAKS:
+    (10/32/2027 - 10/35/2027)
+
+COURSE MATH orange:
+    HOMEWORK:
+        ("Algebra HW", 09/20/2027)
+
+COURSE PHYSICS:
+    PROJECTS:
+        ("Lab Report", 10/10/2027, 6)
+
+COURSE BIOLOGY purple:
+    TEST:
+        ("Midterm", 11-14-2027)

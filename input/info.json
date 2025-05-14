@@ -1,0 +1,63 @@
+{
+    "difficultyLevels": [
+        {
+            "level": 2,
+            "days": 1
+        },
+        {
+            "level": 3,
+            "days": 2
+        },
+        {
+            "level": 4,
+            "days": 3
+        }
+    ],
+    "semesterDates": [{
+        "start": "08/21/2025",
+        "end": "12/15/2025"
+    }],
+    "breakDates": [{
+        "start": "11/25/2025",
+        "end": "11/29/2025"
+    }],
+    "courseInfo": [
+        {
+            "courseName": "CS101",
+            "homeworks": [{
+                "date": "09/01/2025",
+                "difficulty": 2,
+                "color": "red",
+                "title": "HW1"
+            }],
+            "projects": [{
+                "date": "10/10/2025",
+                "difficulty": 4,
+                "color": "blue",
+                "title": "Project Alpha"
+            }],
+            "tests": [{
+                "date": "11/13/2025",
+                "difficulty": 3,
+                "color": "green",
+                "title": "Midterm"
+            }]
+        },
+        {
+            "courseName": "MATH204",
+            "homeworks": [{
+                "date": "08/25/2025",
+                "difficulty": 1,
+                "color": "red",
+                "title": "Worksheet 1"
+            }],
+            "projects": [],
+            "tests": [{
+                "date": "12/10/2025",
+                "difficulty": 4,
+                "color": "green",
+                "title": "Final"
+            }]
+        }
+    ]
+}
