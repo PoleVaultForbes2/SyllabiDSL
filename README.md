@@ -90,7 +90,7 @@ Matthew: Handled coming up with inputs, building the HTML file, helping come up 
 <!--    Leave the content below     -->
 <!-- ****************************** -->
 
-<!-- The script and style below are added for clarity and to workaround a bug -->
+<!-- The script and style below are added for clarity and to workaround a bug 
 <script>
     // this is a hack to workaround a bug in Markdeep+Mathjax, where
     // `&#36;`` is automatically converted to `\(`` and `\)`` too soon.
@@ -114,7 +114,7 @@ Matthew: Handled coming up with inputs, building the HTML file, helping come up 
     /* fixes table of contents of medium-length document from looking weird if admonitions are behind */
     .md div.mediumTOC { background: white; }
     .md div.admonition { position: initial !important; }
-</style>
+</style>-->
 
 <!--   Leave the following Markdeep formatting code, as this will format your text above to look nice in a wed browser   -->
 <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
