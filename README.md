@@ -64,8 +64,7 @@ Each assignment has the structure of (name, date, optional difficulty, optional 
 
 **Output for this input**
 
-![Output based on Input](test.png width="600px")
-![Another month with breaks](testBreaks.png width="600px")
+Check: test.png and testBreaks.png
 
 
 DSL vs General Purpose
