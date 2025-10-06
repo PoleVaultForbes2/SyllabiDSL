@@ -114,13 +114,13 @@ Output:
 Below are sample screenshots of the generated semester calendar output.
 
 ### Assignment due with Reminders
-![](src/images/output1.png)
+![](src/output1.png)
 
 ### Upcoming Test and Breaks
-![](src/images/output2.png)
+![](src/output2.png)
 
 ### Assignemnt due over Break
-![](src/images/output3.png)
+![](src/output3.png)
 
 ---
 
@@ -159,5 +159,6 @@ Created as a demonstration of compiler design, DSL creation, and academic schedu
 
 <script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?"></script>
 <style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
+
 
 
